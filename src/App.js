@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
 
-function App() {
+function Example() {
+  // 宣告一個新的 state 變數，我們稱作為「count」。
+  const [count, setCount] = useState(0);
+  const [name , setName] = useState("Johnny")
+   
+  useEffect(()=>{
+      console.log(`This is ${name}`);
+  },[name])
+  
+  useEffect(()=>{
+    console.log(`you click ${count} times`);
+  },[count])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
     </div>
   );
 }
 
-export default App;
+export default Example;

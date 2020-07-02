@@ -1,13 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+// import './index.css';
+// import App from './App';
+// import Counter from './counter'
+import Transformation from './transFormation/transFormation';
 import * as serviceWorker from './serviceWorker';
+import styled from '@emotion/styled'
+
+
+const RootStyle = styled.div`
+  display: flex
+  align-items:center;
+`;
+
+// const counters = Array.from({ length: 5 }, (_, index) => index); 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <RootStyle>
+    {/* {counters.map((eachElement)=>(<Counter/>))} */}
+    <Transformation/>  
+  </RootStyle>,  
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 
