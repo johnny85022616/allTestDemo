@@ -10,23 +10,28 @@ justify-content: center;
 `;
 
 
-function Conveter(props) {
-
-    const {originalState} = props;
+function Input() {
+    
+    const dispatch = useDispatch();
     const [inputValue , setInputValue] = useState(originalState);
 
     const handleChange = (e)=>{
         let inputValue = e.target.value;
         setInputValue(inputValue);
     }
+
+    const handleButtonClick = ()=>{
+        dispatch({
+            name : inputValue
+        });
+    }
     
   return (
     <Converter>
-        set <input type='number' value={inputValue} onChange={handleChange}/>
-        <div>-------</div>
-        trans <input type='text' value={inputValue/5} readOnly/>
+        輸入姓名 : <input type='number' value={inputValue} onChange={handleChange}/>
+        <div onClick={handleButtonClick}>新增</div>
     </Converter>
   );
 }
 
-export default Conveter;
+export default Input;

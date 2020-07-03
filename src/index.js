@@ -2,25 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import './index.css';
 // import App from './App';
-// import Counter from './counter'
+import Counter from './counter/counter'
 import Transformation from './transFormation/transFormation';
 import * as serviceWorker from './serviceWorker';
 import styled from '@emotion/styled'
+import { Provider } from 'react-redux';
+import {store} from './store.js'
 
 
-const RootStyle = styled.div`
-  display: flex
-  align-items:center;
-`;
+
 
 // const counters = Array.from({ length: 5 }, (_, index) => index); 
 
 ReactDOM.render(
   // <React.StrictMode>
-  <RootStyle>
+  <Provider store={store}>
     {/* {counters.map((eachElement)=>(<Counter/>))} */}
-    <Transformation/>  
-  </RootStyle>,  
+    {/* <Transformation/>   */}
+  <Counter/>
+  </Provider>,  
   // </React.StrictMode>,
   document.getElementById('root')
 );

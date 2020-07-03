@@ -11,7 +11,7 @@ background-color: #ededed;
 function Transformation() {
   return (
     <Container>
-       <Converter/>
+       <Converter originalState={0}/>
        <Level/>
     </Container>
   );
