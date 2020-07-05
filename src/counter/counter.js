@@ -41,6 +41,7 @@ function Counter() {
             type: action ,
             count : count
         })
+        
     }
 
 
