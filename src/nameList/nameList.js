@@ -3,21 +3,22 @@ import styled from '@emotion/styled'
 import Input from './input.js';
 
 
-const nameList = styled.div`
-    width:300px;
-    margin:0 auto;
-    height:500px;
+const NameList = styled.div`
+    width:600px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     background-color:pink;
+    margin:0 auto
 `;
 
 
-function NameList() {
+export function Form() {
 
   return (
-    <nameList>
+    <NameList>
         <Input />
-    </nameList>
+    </NameList>
   );
 }
 
-export default NameList;

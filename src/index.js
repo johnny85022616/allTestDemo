@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import './index.css';
 // import App from './App';
-import Counter from './counter/counter'
-import Transformation from './transFormation/transFormation';
+// import Counter from './counter/counter'
+// import Transformation from './transFormation/transFormation';
 import * as serviceWorker from './serviceWorker';
 import styled from '@emotion/styled'
 import { Provider } from 'react-redux';
 import {store} from './store.js'
+import {Form} from './nameList/nameList';
 
 
 
@@ -19,7 +20,7 @@ ReactDOM.render(
   <Provider store={store}>
     {/* {counters.map((eachElement)=>(<Counter/>))} */}
     {/* <Transformation/>   */}
-  <Counter/>
+  <Form/>
   </Provider>,  
   // </React.StrictMode>,
   document.getElementById('root')

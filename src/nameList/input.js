@@ -1,36 +1,82 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import styled from '@emotion/styled'
+import { useSelector, useDispatch } from 'react-redux';
 
 
-const Converter = styled.div`
-height: 100px;
-display: flex;
-align-items: center;
-justify-content: center;
+const Form = styled.div`
+height: 140px;
+display:inline-block;
+text-align:center;
 `;
+
+const CommitButton = styled.button`
+height:20px;
+width:50px;
+background-color:gray;
+color:white;
+display:flex;
+item-align:center;
+justify-content:center;
+margin:20px auto;
+`;
+
+const InputBlock = styled.input`
+margin-top:20px;
+`;
+
+
 
 
 function Input() {
     
     const dispatch = useDispatch();
-    const [inputValue , setInputValue] = useState(originalState);
+    const [nameValue , setNameValue] = useState('');
+    const [phoneValue , setPhoneValue] = useState('');
 
-    const handleChange = (e)=>{
-        let inputValue = e.target.value;
-        setInputValue(inputValue);
+    const handleChange = (e , inputType)=>{
+        switch(inputType){
+            case "name":
+                let name = e.target.value;
+                setNameValue(name);
+            break;
+            case "phone":
+                let phone = e.target.value;
+                setPhoneValue(phone);
+            break;      
+        }
     }
 
-    const handleButtonClick = ()=>{
-        dispatch({
-            name : inputValue
-        });
-    }
+
+    const handleButtonClick = (actionType)=>{
+        let name = nameValue;
+        let phone = phoneValue;
+
+        const data = {
+            name : name ,
+            phone : phone
+        }
     
+        dispatch({
+            type: actionType , 
+            data: data
+        });
+
+        setNameValue('');
+        setPhoneValue('')
+    }
+    useEffect(()=>{
+        console.log("asd")
+    })
   return (
-    <Converter>
-        輸入姓名 : <input type='number' value={inputValue} onChange={handleChange}/>
-        <div onClick={handleButtonClick}>新增</div>
-    </Converter>
+    <Form>
+        <div>
+            輸入姓名 : <InputBlock type='text' value={nameValue} onChange={(e)=>{handleChange(e,"name")}}/>
+        </div>
+        <div>
+            輸入電話 : <InputBlock type='number' value={phoneValue} onChange={(e)=>{handleChange(e,"phone")}}/>
+        </div>
+        <CommitButton onClick={()=>{handleButtonClick("ADD_MEMBER")}}>新增</CommitButton>
+    </Form>
   );
 }
 
