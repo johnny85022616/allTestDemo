@@ -4,8 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 const Form = styled.div`
-height: 140px;
+min-height: 140px;
 display:inline-block;
+width:100%;
 text-align:center;
 `;
 
@@ -65,7 +66,7 @@ function Input() {
         setPhoneValue('')
     }
     useEffect(()=>{
-        console.log("asd")
+       
     })
   return (
     <Form>
