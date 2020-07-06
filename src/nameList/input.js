@@ -31,7 +31,6 @@ function Input() {
         輸入姓名 : <input type='number' value={inputValue} onChange={handleChange}/>
         輸入電話 : <input type='number' value={inputValue} onChange={handleChange}/>
         <div onClick={handleButtonClick}>新增</div>
-    
     </Converter>
   );
 }
