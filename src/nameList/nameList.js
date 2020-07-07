@@ -4,13 +4,12 @@ import Input from './input.js';
 import {MemberList} from './result.js'
 
 const NameList = styled.div`
-    width:600px;
     background-color:pink;
     margin: 0 auto;
 `;
 
 
-export function Form() {
+export function IncreaseForm() {
 
   return (
     <NameList>

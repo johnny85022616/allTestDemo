@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import styled from '@emotion/styled'
 import { Provider } from 'react-redux';
 import {store} from './store.js'
-import {Form} from './nameList/nameList';
+import {Home} from './homePage/home.js';
 
 
 
@@ -20,7 +20,7 @@ ReactDOM.render(
   <Provider store={store}>
     {/* {counters.map((eachElement)=>(<Counter/>))} */}
     {/* <Transformation/>   */}
-  <Form/>
+  <Home/>
   </Provider>,  
   // </React.StrictMode>,
   document.getElementById('root')
