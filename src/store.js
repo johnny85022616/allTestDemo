@@ -2,7 +2,7 @@ import {createStore , compose , combineReducers} from 'redux';
 import {counterReducer} from './reducers/counterReducer.js'
 import {FormReducer} from './reducers/formResucer.js';
 
-//conbine reducers
+//conbines
 const allReducer = combineReducers({
     counterReducer,
     FormReducer
