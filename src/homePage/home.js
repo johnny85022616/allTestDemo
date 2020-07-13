@@ -68,9 +68,9 @@ ${({action})=>{
     <HomeBlock>
         <HomeTitle>新刪修首頁</HomeTitle>
         <ButtonBlock>
-            <IncreaseButton key={'1'} action={action} onClick={()=>{handleClick('1')}}>新增</IncreaseButton>
+            {/* <IncreaseButton key={'1'} action={action} onClick={()=>{handleClick('1')}}>新增</IncreaseButton>
             <DeleteButton key={'2'} action={action} onClick={()=>{handleClick('2')}}>刪除</DeleteButton>
-            <ChangeButton key={'3'} action={action} onClick={()=>{handleClick('3')}}>修改</ChangeButton>
+            <ChangeButton key={'3'} action={action} onClick={()=>{handleClick('3')}}>修改</ChangeButton> */}
         </ButtonBlock>
         <IncreaseForm/>
     </HomeBlock>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import styled from '@emotion/styled'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { jsx, css, keyframes } from '@emotion/core'
 
 
@@ -24,32 +24,69 @@ const ResultList = styled.div`
     margin-bottom:20px;
 `;
 
+const Name = styled.div`
+    margin-right:50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+`;
+
+const Phone = styled.div`
+    margin-right:50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+`;
+
+
+const DeleteButton = styled.button`
+    width:80px;
+    height:30px;
+    background-color: gray;
+    color:white;
+`;
+
 
 const Member = styled.div`
 width:100%;
 display:flex;
 justify-content:center;
+align-items:center;
 `;
 
-export function MemberList() {
 
+export function MemberList() {
+    const dispatch = useDispatch();
     let hasData = false;
+    
     const dataList = useSelector(state => state.FormReducer.member);
+    
     if(dataList.length>0){
         hasData = true
     }
 
+    const handleDeleteButtonClick =(i)=>{
+        dispatch({
+            type:'DELETE_MEMBER',
+            number:i
+        });
+    }
+
+   
+
     useEffect(()=>{
-        
+            
     })
 
   return (
     <ResultList hasData={hasData}>
         <div>名單</div>
-        {dataList.map((eachElement)=>{
+        {dataList.map((eachElement,i)=>{
         console.log(eachElement)
         return <Member key = {eachElement.name}>
-            <div>姓名:{eachElement.name}</div><div>電話:{eachElement.phone}</div>
+                    <Name>姓名:{eachElement.name}</Name>
+                    <Phone>電話:{eachElement.phone}</Phone>
+                    <DeleteButton onClick={()=>{handleDeleteButtonClick(i)}}>刪除</DeleteButton>
             </Member>})}
     </ResultList>
   );
