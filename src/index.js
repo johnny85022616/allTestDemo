@@ -7,10 +7,10 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import styled from '@emotion/styled'
 import { Provider } from 'react-redux';
-import {store} from './store.js'
-// import {Home} from './homePage/home.js';
-import {Component1} from "./testHook/Component1.jsx";
-import {Component2} from "./testHook/Component2.jsx";
+import {store} from './store/store.js'
+import {Home} from './module/homePage/home.js'
+import {Component1} from "./module/testHook/Component1.jsx";
+
 
 
 
@@ -22,8 +22,8 @@ ReactDOM.render(
   <Provider store={store}>
     {/* {counters.map((eachElement)=>(<Counter/>))} */}
     {/* <Transformation/>   */}
-  {/* <Home/> */}
-  <Component1/>
+  <Home/>
+  {/* <Component1/> */}
 
   </Provider>,  
   // </React.StrictMode>,
