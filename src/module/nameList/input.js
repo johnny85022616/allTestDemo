@@ -10,19 +10,36 @@ width:100%;
 text-align:center;
 `;
 
-const CommitButton = styled.button`
-height:20px;
-width:50px;
+const CommitButton = styled.div`
+height:30px;
+width:100px;
 background-color:gray;
 color:white;
 display:flex;
-item-align:center;
+align-items:center;
 justify-content:center;
 margin:20px auto;
+margin:20px 30px 20px 0;
+`;
+
+const SendButton = styled.div`
+height:30px;
+width:100px;
+background-color:gray;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:20px 0;
 `;
 
 const InputBlock = styled.input`
 margin-top:20px;
+`;
+
+const ButtonBlock = styled.div`
+display:flex;
+justify-content:center;
 `;
 
 
@@ -65,9 +82,20 @@ function Input() {
         setNameValue('');
         setPhoneValue('')
     }
-    useEffect(()=>{
-       
+
+    const handleSendButtonClick = ()=>{
+     fetch('http://localhost:3001/rest/getName')
+    .then((response) => {
+        console.log(response)
+        return response.json()
+        //return response.text()
+    }).then((myJson) => {
+        console.log(myJson)
     })
+    }
+    useEffect(()=>{
+     
+    },[])
   return (
     <Form>
         <div>
@@ -76,7 +104,10 @@ function Input() {
         <div>
             輸入電話 : <InputBlock type='number' value={phoneValue} onChange={(e)=>{handleChange(e,"phone")}}/>
         </div>
-        <CommitButton onClick={()=>{handleButtonClick("ADD_MEMBER")}}>新增</CommitButton>
+        <ButtonBlock>
+            <CommitButton onClick={()=>{handleButtonClick("ADD_MEMBER")}}>新增</CommitButton>
+            <SendButton onClick={handleSendButtonClick}>送出</SendButton>
+        </ButtonBlock>
     </Form>
   );
 }
