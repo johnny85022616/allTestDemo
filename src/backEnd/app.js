@@ -1,6 +1,6 @@
-import express from "express"
-import router from './api/api.js';
-import cors from "cors";
+var express = require("express");
+var router = require('./api/api.js');
+var cors = require("cors");
 
 var app = express()
 
