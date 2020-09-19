@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import {store} from './store/store.js'
 import {Home} from './module/homePage/home.js'
 import {Component1} from "./module/testHook/Component1.jsx";
+import Calculator from "./module/Calculator/Calculator.jsx";
 
 
 
@@ -23,6 +24,7 @@ ReactDOM.render(
     {/* {counters.map((eachElement)=>(<Counter/>))} */}
     {/* <Transformation/>   */}
   <Home/>
+  {/* <Calculator></Calculator> */}
   {/* <Component1/> */}
 
   </Provider>,  

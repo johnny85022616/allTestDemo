@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router()
-var db = require("../../../models/index.js")
+const { User} = require('../establishment.js')
 
 router.get('/',(req,res)=>{
     res.send("this is first");    
@@ -12,8 +12,7 @@ router.get('/getName',(req,res)=>{
         name:"johnny",
         id:"1"
     }
-    
-    
+        
     if(res.status = 200){
         res.json({data:{a:"1",b:"2"}})
     }else{
