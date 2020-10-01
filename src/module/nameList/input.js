@@ -2,7 +2,6 @@ import React, { useState, useEffect} from 'react';
 import styled from '@emotion/styled'
 import { useSelector, useDispatch } from 'react-redux';
 
-
 const Form = styled.div`
 min-height: 140px;
 display:inline-block;
@@ -22,16 +21,6 @@ margin:20px auto;
 margin:20px 30px 20px 0;
 `;
 
-const SendButton = styled.div`
-height:30px;
-width:100px;
-background-color:gray;
-color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-margin:20px 0;
-`;
 
 const InputBlock = styled.input`
 margin-top:20px;
@@ -83,16 +72,6 @@ function Input() {
         setPhoneValue('')
     }
 
-    const handleSendButtonClick = ()=>{
-     fetch('http://localhost:3001/rest/getName')
-    .then((response) => {
-        console.log(response)
-        return response.json()
-        //return response.text()
-    }).then((myJson) => {
-        console.log(myJson)
-    })
-    }
     useEffect(()=>{
      
     },[])
@@ -106,7 +85,6 @@ function Input() {
         </div>
         <ButtonBlock>
             <CommitButton onClick={()=>{handleButtonClick("ADD_MEMBER")}}>新增</CommitButton>
-            <SendButton onClick={handleSendButtonClick}>送出</SendButton>
         </ButtonBlock>
     </Form>
   );

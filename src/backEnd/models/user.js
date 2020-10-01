@@ -5,6 +5,11 @@ module.exports = (sequelize, type) => {
           primaryKey: true,
           autoIncrement: true
         },
-        name: type.STRING
+        name: {
+          type:type.STRING
+        },
+        phone:{
+          type:type.STRING
+        }        
     })
 }
