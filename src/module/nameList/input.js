@@ -18,7 +18,6 @@ display:flex;
 align-items:center;
 justify-content:center;
 margin:20px auto;
-margin:20px 30px 20px 0;
 `;
 
 

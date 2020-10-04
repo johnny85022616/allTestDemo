@@ -27,6 +27,13 @@ export const FormReducer = (state = initialState , action)=>{
                 member:newMemberList
             });  
             return  newState;
+
+        case "DELETE_All_MEMBER":
+            console.log("send all");
+            newState = Object.assign({},state,{
+            member:[]
+        })
+        return  newState;
         default:
             return state;   
     }

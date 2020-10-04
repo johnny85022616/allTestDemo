@@ -6,15 +6,16 @@ const {insertUser} = require('../Dao/userDao.js')
 var jsonParser = bodyParser.json()
 
 
-router.get('/',(req,res)=>{
-    res.send("this is first");    
-})
+// router.get('/',(req,res)=>{
+//     res.send("this is first");    
+// })
 
 router.post('/storeUser' , jsonParser , (req,res)=>{
     console.log(req.body);
     let memberList = req.body;
     insertUser(memberList);
     console.log("Insert Success")
+    res.json({ msg: 'success' });
 });
 
 module.exports = router;
