@@ -89,12 +89,14 @@ export function MemberList() {
     }
 
     const handleSendButtonClick = async()=>{
-      console.log(dataList)
+      console.log(dataList )
       const isComplete = await apiUserStore(dataList);
-          
-      }
+      console.log(isComplete);
+      dispatch({
+        type:'DELETE_All_MEMBER',
+      });
 
-   
+      }
 
     useEffect(()=>{
             
