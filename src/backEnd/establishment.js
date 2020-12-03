@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 const UserModel = require('./models/user')
 
 const sequelize = new Sequelize('AllTestDemo', 'root', '!QAZ2wsx', {
-  host: 'localhost',
+  host: '192.168.0.51',
   dialect: 'mssql',
   pool: {
     max: 10,
