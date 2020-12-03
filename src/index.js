@@ -10,24 +10,37 @@ import { Provider } from 'react-redux';
 import {store} from './store/store.js'
 import {Home} from './module/homePage/home.js'
 import {Component1} from "./module/testHook/Component1.jsx";
-import Calculator from "./module/Calculator/Calculator.jsx";
+import {Navbar} from './module/navBar/navBar.jsx';
+
+// const HomeBlock = styled.div`
+//     background-color:pink;
+// `;
 
 
+// const HomeTitle = styled.div`
+//     font-size:50px;
+//     font-weight:bold;
+//     display:flex;
+//     items-align:center;
+//     justify-content:center;
+// `;
 
-
-
-// const counters = Array.from({ length: 5 }, (_, index) => index); 
+// const Home = ()=>{
+//   return (
+//     <>
+//   </>
+//   )
+// }
 
 ReactDOM.render(
+
   // <React.StrictMode>
   <Provider store={store}>
     {/* {counters.map((eachElement)=>(<Counter/>))} */}
     {/* <Transformation/>   */}
-  <Home/>
-  {/* <Calculator></Calculator> */}
+  <Navbar/>
   {/* <Component1/> */}
-
-  </Provider>,  
+  </Provider>,
   // </React.StrictMode>,
   document.getElementById('root')
 );

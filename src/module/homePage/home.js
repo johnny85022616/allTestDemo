@@ -1,15 +1,17 @@
 import React, { useState} from 'react';
 import styled from '@emotion/styled'
 import {IncreaseForm} from '../nameList/nameList.js'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 const HomeBlock = styled.div`
-    background-color:pink;
+    
 `;
 
-const ButtonBlock = styled.div`
-   display:flex;
-   justify-content:center;
-`;
 
 const HomeTitle = styled.div`
     font-size:50px;
@@ -19,60 +21,21 @@ const HomeTitle = styled.div`
     justify-content:center;
 `;
 
-const ButtonCss = (
-    `height:40px;
-    width:100px;
-    background-color:gray;
-    color:white;
+const HomeContent = styled.div`
+    font-size:25px;
     display:flex;
-    item-align:center;
+    items-align:center;
     justify-content:center;
-    margin:20px auto;`
-)
-
-const IncreaseButton = styled.button`
-${ButtonCss}
-${({action})=>{
-    if(action=='1'){
-        return `background-color:Blue;`
-    }
-}}
+    margin-top:30px;
 `;
 
-const DeleteButton = styled.button`
-${ButtonCss}
-${({action})=>{
-    if(action=='2'){
-        return `background-color:Blue;`
-    }
-}}
-`;
-
-const ChangeButton = styled.button`
-${ButtonCss}
-${({action})=>{
-    if(action=='3'){
-        return `background-color:Blue;`
-    }
-}}
-`;
   
   export const Home = ()=>{
-      const [action,setAction] = useState('0');
-      
-      const handleClick = (i)=>{
-          setAction(i)
-      }
 
   return (
     <HomeBlock>
-        <HomeTitle>新刪修首頁</HomeTitle>
-        <ButtonBlock>
-            {/* <IncreaseButton key={'1'} action={action} onClick={()=>{handleClick('1')}}>新增</IncreaseButton>
-            <DeleteButton key={'2'} action={action} onClick={()=>{handleClick('2')}}>刪除</DeleteButton>
-            <ChangeButton key={'3'} action={action} onClick={()=>{handleClick('3')}}>修改</ChangeButton> */}
-        </ButtonBlock>
-        <IncreaseForm/>
+       <HomeTitle>新刪修首頁</HomeTitle>
+       <HomeContent>歡迎來到張裕的新刪修網站，此頁面為功能非常基本之新刪修網頁，供面試使用。</HomeContent>
     </HomeBlock>
   );
 }
