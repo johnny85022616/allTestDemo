@@ -2,8 +2,8 @@ const Sequelize = require('sequelize')
 const UserModel = require('./models/user')
 
 const sequelize = new Sequelize('AllTestDemo', 'root', '!QAZ2wsx', {
-  host: '192.168.0.51',
-  dialect: 'mssql',
+  host: 'localhost',
+  dialect: 'mysql',
   pool: {
     max: 10,
     min: 0,
@@ -23,7 +23,7 @@ const User = UserModel(sequelize, Sequelize)
 // Tag.belongsToMany(Blog, { through: BlogTag, unique: false })
 // Blog.belongsTo(User);
 
-sequelize.sync({ force: true })
+sequelize.sync({ force: false })
   .then(() => {
     console.log(`Database & tables created!`)
   })

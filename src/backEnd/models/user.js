@@ -10,6 +10,10 @@ module.exports = (sequelize, type) => {
         },
         phone:{
           type:type.STRING
+        },
+        identityNumber:{
+          type:type.STRING,
+          unique:true
         }        
     })
 }
