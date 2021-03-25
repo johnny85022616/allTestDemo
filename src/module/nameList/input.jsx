@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import styled from '@emotion/styled'
-import { useSelector, useDispatch } from 'react-redux';
+import {useDispatch} from 'react-redux';
 
 const Form = styled.div`
 min-height: 140px;
@@ -31,13 +31,12 @@ justify-content:center;
 `;
 
 
-
-
 function Input() {
     
     const dispatch = useDispatch();
     const [nameValue , setNameValue] = useState('');
     const [phoneValue , setPhoneValue] = useState('');
+    const [identityValue , setIdentityValue] = useState('');
 
     const handleChange = (e , inputType)=>{
         switch(inputType){
@@ -48,7 +47,10 @@ function Input() {
             case "phone":
                 let phone = e.target.value;
                 setPhoneValue(phone);
-            break;      
+            break;  
+            case "identityValue":
+                let identityValue = e.target.value;
+                setIdentityValue(identityValue);
         }
     }
 
@@ -56,10 +58,12 @@ function Input() {
     const handleButtonClick = (actionType)=>{
         let name = nameValue;
         let phone = phoneValue;
+        let identity = identityValue;
 
         const data = {
             name : name ,
-            phone : phone
+            phone : phone,
+            identityNumber : identity
         }
     
         dispatch({
@@ -68,7 +72,8 @@ function Input() {
         });
 
         setNameValue('');
-        setPhoneValue('')
+        setPhoneValue('');
+        setIdentityValue('');
     }
 
     useEffect(()=>{
@@ -81,6 +86,9 @@ function Input() {
         </div>
         <div>
             輸入電話 : <InputBlock type='number' value={phoneValue} onChange={(e)=>{handleChange(e,"phone")}}/>
+        </div>
+        <div>
+            輸入身分證字號 : <InputBlock type='text' value={identityValue} onChange={(e)=>{handleChange(e,"identityValue")}}/>
         </div>
         <ButtonBlock>
             <CommitButton onClick={()=>{handleButtonClick("ADD_MEMBER")}}>新增</CommitButton>

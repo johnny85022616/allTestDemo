@@ -1,15 +1,10 @@
-import React, { useState} from 'react';
+import React from 'react';
 import styled from '@emotion/styled'
-import {IncreaseForm} from '../nameList/nameList.js'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
+
 
 const HomeBlock = styled.div`
-    
+    background-color:pink;
+    height:100vh;
 `;
 
 

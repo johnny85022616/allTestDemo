@@ -13,3 +13,16 @@ export const Component1 =()=>{
       </div>
   )
 }
+
+
+export const Component2 =()=>{
+  const [count , setCount] = useState(0);
+
+  const alertHello =()=>{
+    setCount(count + 1);
+    console.log(count);
+  }
+  return (
+      <button onClick={alertHello}>點我(計次:{count})</button>
+  )
+}

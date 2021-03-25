@@ -9,7 +9,7 @@ import styled from '@emotion/styled'
 import { Provider } from 'react-redux';
 import {store} from './store/store.js'
 import {Home} from './module/homePage/home.js'
-import {Component1} from "./module/testHook/Component1.jsx";
+import {Component2} from "./module/testHook/Component1.jsx";
 import {Navbar} from './module/navBar/navBar.jsx';
 
 // const HomeBlock = styled.div`
@@ -39,7 +39,7 @@ ReactDOM.render(
     {/* {counters.map((eachElement)=>(<Counter/>))} */}
     {/* <Transformation/>   */}
   <Navbar/>
-  {/* <Component1/> */}
+  {/* <Component2/> */}
   </Provider>,
   // </React.StrictMode>,
   document.getElementById('root')
