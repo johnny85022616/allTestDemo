@@ -33,14 +33,14 @@ router.post('/UserLogin' , jsonParser , async(req,res)=>{
 
 router.get('/UserLogout' , jsonParser , async(req,res)=>{
     res.clearCookie("jwtToken");
-    const token = req.header('Authorization').replace('Bearer','');
-    const decoded = jwt.verify(token,secret)
-    let arr = Object.keys(decoded);
-    arr.map((ele)=>{
-        console.log(ele)
-        console.log(decoded[ele]);
-    });
-    console.log("$$$$$$$$$$$$$$$"+decoded)
+    // const token = req.header('Authorization').replace('Bearer','');
+    // const decoded = jwt.verify(token,secret)
+    // let arr = Object.keys(decoded);
+    // arr.map((ele)=>{
+    //     console.log(ele)
+    //     console.log(decoded[ele]);
+    // });
+    // console.log("$$$$$$$$$$$$$$$"+decoded)
     res.json({ msg: 'success'});
 });
 
