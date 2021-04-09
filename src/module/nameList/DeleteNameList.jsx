@@ -19,8 +19,14 @@ const Content = styled.div`
 `;
 
 const findAllUserActionCreator = async()=>{
-        const returnData = await apiFindAllUser();
-        const users = returnData.data.user;
+  const returnData = await apiFindAllUser();
+  let users ;
+  try{
+     users = returnData.data.user;
+
+      }catch(e){
+        console.error("DeleteNameList findAllUserActionCreator Error");
+      }
     return {type:'FIND_ALL_MEMBER',data:users};
 }
 

@@ -57,7 +57,7 @@ align-items:center;
 export function MemberList() {
     const dispatch = useDispatch();
     let hasData = false;
-    const dataList = useSelector(state => state.FormReducer.member);
+    const dataList = useSelector(state => state.FormReducer.member)||[];
 
     if(dataList.length>0){
         hasData = true
@@ -81,11 +81,12 @@ export function MemberList() {
     <>
       <ResultList hasData={hasData}>
           <div>名單</div>
-          {dataList.map((eachElement,i)=>{
-          return <Member key = {eachElement.name}>
-                      <Column key={eachElement.name}>姓名 : {eachElement.name}</Column>
-                      <Column key={eachElement.phone}>電話 : {eachElement.phone}</Column>
-                      <Column key={eachElement.identityNumber}>身分證字號 : {eachElement.identityNumber}</Column>
+          {
+          dataList.map((eachElement,i)=>{
+          return <Member key = {(eachElement||{}).name}>
+                      <Column key={(eachElement||{}).name}>姓名 : {(eachElement||{}).name}</Column>
+                      <Column key={(eachElement||{}).phone}>電話 : {(eachElement||{}).phone}</Column>
+                      <Column key={(eachElement||{}).identityNumber}>身分證字號 : {(eachElement||{}).identityNumber}</Column>
                       <Column><DeleteButton onClick={()=>{handleDeleteButtonClick(i)}}>刪除</DeleteButton></Column>
               </Member>})}
       </ResultList>

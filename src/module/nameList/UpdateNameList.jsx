@@ -20,7 +20,12 @@ const Content = styled.div`
 
 const findAllUserActionCreator = async()=>{
         const returnData = await apiFindAllUser();
-        const users = returnData.data.user;
+        let users ;
+        try{
+          users = returnData.data.user;
+        }catch(e){
+          console.error("updateNameList findAllUserActionCreator 資料異常!!")
+        }
     return {type:'FIND_ALL_MEMBER',data:users};
 }
 

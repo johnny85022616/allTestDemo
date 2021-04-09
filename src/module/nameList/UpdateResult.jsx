@@ -59,7 +59,7 @@ align-items:center;
 export function UpdateMemberList() {
     const dispatch = useDispatch();
     let hasData = false;
-    const dataList = useSelector(state => state.FormReducer.member);
+    const dataList = useSelector(state => state.FormReducer.member); 
     const paginationNumber = useSelector(state=>state.paginationReducer.startNumber);
     
     console.log(paginationNumber)
@@ -79,7 +79,7 @@ export function UpdateMemberList() {
     const renderList = ()=>{
         let arr = [];
         console.log(dataList)
-        for(let i = paginationNumber ; i<paginationNumber+5 ;i++){
+        for(let i = paginationNumber ; i<paginationNumber*5+5 ;i++){
             let eachElement = dataList[i]||{};
             console.log(eachElement)
             if((Object.keys(eachElement).length)!=0){
