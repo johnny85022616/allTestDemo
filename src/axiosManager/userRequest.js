@@ -21,10 +21,10 @@ const userRequest = axios.create({
 
 
 //user區
-export const apiUserStore = (data) => userRequest.post('/storeUser', data);
-export const apiFindAllUser = () => userRequest.get('/findAllUser');
-export const apiUserDelete = (data)=> userRequest.post('/DeleteUser', data);
-export const apiUpdateUser = (data)=> userRequest.post('/UpdateUser', data);
-export const apiUserLogin = (data)=> userRequest.post('/UserLogin', data);
-export const apiUserLogout = ()=> userRequest.get('/UserLogout',config);
+export const apiUserStore = (data) => userRequest.post('/storeUser', data).catch((err)=>{alert("伺服器異常")});
+export const apiFindAllUser = () => userRequest.get('/findAllUser').catch((err)=>{alert("伺服器異常")});
+export const apiUserDelete = (data)=> userRequest.post('/DeleteUser', data).catch((err)=>{alert("伺服器異常")});
+export const apiUpdateUser = (data)=> userRequest.post('/UpdateUser', data).catch((err)=>{alert("伺服器異常")});
+export const apiUserLogin = (data)=> userRequest.post('/UserLogin', data).catch((err)=>{alert("伺服器異常")})
+export const apiUserLogout = ()=> userRequest.get('/UserLogout',config).catch((err)=>{alert("伺服器異常")});
 

@@ -44,7 +44,7 @@ export const FormReducer = (state = initialState , action)=>{
           });  
           return  newState;
         
-        case "DELETE_MEMBER_ARRAY":
+        case "DELETE_MEMBER_ARRAY":       //按送出才把所有要刪除的名單給deleteSendButton
             let deleteMemeber = state.member[action.number];
             newDeleteMemeberList = state.deleteMememberList.concat(deleteMemeber);
             newState = Object.assign({},state,{
@@ -52,7 +52,7 @@ export const FormReducer = (state = initialState , action)=>{
             });  
             return  newState;
         
-        case "UPDATE_MEMBER":
+        case "UPDATE_MEMBER":    //被選到的member(要放到input裡面的)
             let choseMemeber = state.member[action.number];
             console.log(choseMemeber)
             newState = Object.assign({},state,{
