@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled'
-import { useSelector, useDispatch, batch} from 'react-redux';
-import { jsx, css, keyframes } from '@emotion/core'
+import { useSelector, useDispatch} from 'react-redux';
+import {css, keyframes } from '@emotion/core'
 import {Pagination} from '../pagination/pagination.jsx'
 
 
@@ -19,7 +19,7 @@ const ResultList = styled.div`
     width:100%;
     text-align:center;
     ${({hasData})=>{
-     return hasData==true? css`animation-name:${down}; animation-duration:2s; animation-fill-mode:forwards;`:''
+     return hasData===true? css`animation-name:${down}; animation-duration:2s; animation-fill-mode:forwards;`:''
     }}
     margin-bottom:20px;
 `;
@@ -82,7 +82,7 @@ export function UpdateMemberList() {
         for(let i = paginationNumber ; i<paginationNumber*5+5 ;i++){
             let eachElement = dataList[i]||{};
             console.log(eachElement)
-            if((Object.keys(eachElement).length)!=0){
+            if((Object.keys(eachElement).length)!==0){
               arr.push(
                 <Member key={i}>
                 <Column key={eachElement.name}>姓名 : {eachElement.name}</Column>

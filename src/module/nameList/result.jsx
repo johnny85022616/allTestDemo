@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled'
-import { useSelector, useDispatch, batch} from 'react-redux';
-import { jsx, css, keyframes } from '@emotion/core'
+import { useSelector, useDispatch} from 'react-redux';
+import { css, keyframes } from '@emotion/core'
 
 
 const down = keyframes`
@@ -18,7 +18,7 @@ const ResultList = styled.div`
     width:100%;
     text-align:center;
     ${({hasData})=>{
-     return hasData==true? css`animation-name:${down}; animation-duration:2s; animation-fill-mode:forwards;`:''
+     return hasData===true? css`animation-name:${down}; animation-duration:2s; animation-fill-mode:forwards;`:''
     }}
     margin-bottom:20px;
 `;
