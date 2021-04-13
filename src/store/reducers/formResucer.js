@@ -65,7 +65,7 @@ export const FormReducer = (state = initialState , action)=>{
             let number = null;
             let changeUpadateMemeber = [];
             state.member.forEach((eachElement,i)=>{
-                if(updateMemeber.identityNumber == eachElement.identityNumber){
+                if(updateMemeber.identityNumber === eachElement.identityNumber){
                     number = i;
                     changeUpadateMemeber.push(updateMemeber);
                 }

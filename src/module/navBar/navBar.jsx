@@ -7,7 +7,6 @@ import {Home} from '../homePage/home.js'
 import {useDispatch ,useSelector} from 'react-redux';
 import {Login} from '../Login/login.jsx'
 import {getCookie} from '../../common/cookie.js'
-import {useLogout} from '../../utility/logout.js'
 import {apiUserLogout} from '../../axiosManager/userRequest' 
 
 import {
@@ -117,7 +116,7 @@ const LogoutButton = ()=>{
     const userLogoutActionCreator = async()=>{
         await apiUserLogout();
         console.log(getCookie("jwtToken"))
-        let isLogin = getCookie("jwtToken")==undefined?false:true;
+        let isLogin = getCookie("jwtToken")===undefined?false:true;
         console.log(isLogin)
         return {type:'LOGIN_AND_LOGOUT',data:isLogin};
     }
@@ -150,7 +149,7 @@ export const Navbar = ()=>{
     const hasJwtToken = getCookie("jwtToken")?true:false;
     const dispatch = useDispatch();
     
-    if(hasJwtToken == true){  //避免使用者refresh之後redux的isLogin變回init值，造成按下logout之後redux無法造成更新之狀況
+    if(hasJwtToken === true){  //避免使用者refresh之後redux的isLogin變回init值，造成按下logout之後redux無法造成更新之狀況
         dispatch({type:'LOGIN_AND_LOGOUT',data:true});
     }
 
@@ -158,7 +157,7 @@ export const Navbar = ()=>{
     console.log("isLogin = "+isLogin);
     console.log("hasJwtToken = "+ hasJwtToken)
     const renderLoginOrNavbar = ()=>{
-        if(isLogin==false){
+        if(isLogin===false){
             return (<Login/>)
         }else{
             return (<><ButtonBlock>

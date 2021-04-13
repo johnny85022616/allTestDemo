@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import styled from '@emotion/styled'
 import {apiUserLogin} from "../../axiosManager/userRequest.js";
 import {getCookie} from "../../common/cookie.js" ;
@@ -53,13 +53,15 @@ function Input() {
                 let identityValue = e.target.value;
                 setIdentityValue(identityValue);
             break;
+
+            default:
         }
     }
 
     const userLoginActionCreator = async(data)=>{
         await apiUserLogin(data);
         console.log(getCookie("jwtToken"))
-        let isLogin = getCookie("jwtToken")==undefined?false:true;
+        let isLogin = getCookie("jwtToken")===undefined?false:true;
         return {type:'LOGIN_AND_LOGOUT',data:isLogin};
       
     }

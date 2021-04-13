@@ -51,6 +51,8 @@ function Input() {
             case "identityValue":
                 let identityValue = e.target.value;
                 setIdentityValue(identityValue);
+                break;
+            default:
         }
     }
 

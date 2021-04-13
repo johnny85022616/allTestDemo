@@ -1,7 +1,5 @@
 import React, { useState} from 'react';
-import styled from '@emotion/styled';
 import {useMousePosition} from "./useMousePosition.jsx";
-import { Component } from 'react';
 
 
 export const Component1 =()=>{
