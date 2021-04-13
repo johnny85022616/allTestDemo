@@ -5,11 +5,8 @@ import ReactDOM from 'react-dom';
 // import Counter from './counter/counter'
 // import Transformation from './transFormation/transFormation';
 import * as serviceWorker from './serviceWorker';
-import styled from '@emotion/styled'
 import { Provider } from 'react-redux';
 import {store} from './store/store.js'
-import {Home} from './module/homePage/home.js'
-import {Component2} from "./module/testHook/Component1.jsx";
 import {Navbar} from './module/navBar/navBar.jsx';
 
 // const HomeBlock = styled.div`

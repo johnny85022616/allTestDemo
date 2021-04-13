@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import styled from '@emotion/styled'
-import {useDispatch, useSelector} from 'react-redux';
-import {apiUpdateUser} from '../../axiosManager/userRequest.js';
+import {useDispatch} from 'react-redux';
+
 
 
 const NumberButton = styled.div`
@@ -14,7 +14,7 @@ const NumberButton = styled.div`
     margin-right:5px;
     margin-left:5px;
     ${({nowPage,page})=>{
-        return page==nowPage?"background-color:yellow":""}}
+        return page===nowPage?"background-color:yellow":""}}
  `;
 
  const PrevOrNextButton = styled.div`
@@ -54,7 +54,7 @@ const NumberButton = styled.div`
   useEffect(()=>{
       const stardNumber =(nowPage-1)*5;
       dispatch({type:'PAGINATION_DATA',data:stardNumber})
-  },[nowPage])
+  },[nowPage,dispatch])
 
   const handleNumberButtonClick = (i)=>{
     setNowPage(i);
@@ -62,7 +62,7 @@ const NumberButton = styled.div`
   }
 
   const handlePreOrNextButtonClick = (type)=>{
-    if(type=="<"){
+    if(type==="<"){
         if(nowPage>1){
             setNowPage(nowPage-1);
         }

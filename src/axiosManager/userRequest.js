@@ -6,7 +6,7 @@ axios.defaults.withCredentials=true;//解決 cookie 跨域問題
 const jwtToken = getCookie('jwtToken');
 let config = {};
 
-if(jwtToken!=undefined){
+if(jwtToken!==undefined){
    config = {
     headers:{
       Authorization:"Bearer"+jwtToken
