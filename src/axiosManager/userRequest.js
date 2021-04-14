@@ -15,7 +15,8 @@ if(jwtToken!==undefined){
 }
 
 const userRequest = axios.create({
-    baseURL: 'http://localhost:3001/rest'
+    // baseURL: 'http://localhost:3001/rest'
+    baseURL: 'http://40.74.72.63:3001/rest'
   });
 
 
