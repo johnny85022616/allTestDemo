@@ -41,6 +41,11 @@ export function UpdateForm() {
 
   useEffect(()=>{
     dispatch(asyncFindAllUser());
+    return ()=>{
+      dispatch({
+        type:"DELETE_CHOSE_MEMBER_FROM_REDUX"
+      })
+    }
   },[dispatch]);
 
   return (

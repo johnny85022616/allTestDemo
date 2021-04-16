@@ -2,6 +2,8 @@ import axios from "axios";
 import {getCookie} from '../common/cookie.js'
 
 axios.defaults.withCredentials=true;//解決 cookie 跨域問題
+let ip = process.env.NODE_ENV === "production" ? "138.91.21.212":"localhost";
+
 
 const jwtToken = getCookie('jwtToken');
 let config = {};
@@ -16,7 +18,7 @@ if(jwtToken!==undefined){
 
 const userRequest = axios.create({
     // baseURL: 'http://localhost:3001/rest'
-    baseURL: 'http://138.91.21.212:3001/rest'
+    baseURL: `http://${ip}:3001/rest`
   });
 
 

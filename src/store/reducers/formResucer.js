@@ -79,7 +79,12 @@ export const FormReducer = (state = initialState , action)=>{
                 member:newMemberList
             });
             return newState;
-
+            
+        case "DELETE_CHOSE_MEMBER_FROM_REDUX":
+            newState = Object.assign({},state,{
+                choseMemeber:{}
+            })
+            return  newState;
         default:
             return state;   
     }
