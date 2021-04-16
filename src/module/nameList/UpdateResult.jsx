@@ -78,10 +78,10 @@ export function UpdateMemberList() {
 
     const renderList = ()=>{
         let arr = [];
-        console.log(dataList)
+        //console.log(dataList)
         for(let i = paginationNumber ; i<paginationNumber*5+5 ;i++){
             let eachElement = dataList[i]||{};
-            console.log(eachElement)
+            //console.log(eachElement)
             if((Object.keys(eachElement).length)!==0){
               arr.push(
                 <Member key={i}>
@@ -93,7 +93,7 @@ export function UpdateMemberList() {
               );
             }
         }
-        console.log(arr)
+        //console.log(arr)
         return arr ;
     }
     
