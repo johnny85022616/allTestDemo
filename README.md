@@ -20,5 +20,5 @@ To connect to the database, please install mysql, create a database called "AllT
 
 ## Demo
 please refer to the [**link**](http://138.91.21.212:3001/)  
-Login Name: aaa  
-login id: a11111111  
+Login Name : aaa  
+login id : a11111111  
