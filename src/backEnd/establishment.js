@@ -1,9 +1,16 @@
 const Sequelize = require('sequelize')
 const UserModel = require('./models/user')
+const propertiesReader = require('properties-reader');
 
-const sequelize = new Sequelize('AllTestDemo', 'root', '!QAZ2wsx', {
-  host: 'localhost',
-  dialect: 'mysql',
+let properties = process.env.NODE_ENV === "production" ? propertiesReader('./production.properties'):propertiesReader('./development.properties');
+let databaseName = properties.get("database.name");
+let databaseUser = properties.get("database.user");
+let databasePassword = properties.get("database.password");
+let databaseHost = properties.get("database.host")
+let databaseDialect = properties.get("database.dialect");
+const sequelize = new Sequelize(databaseName, databaseUser, databasePassword, {
+  host: databaseHost,
+  dialect: databaseDialect,
   pool: {
     max: 10,
     min: 0,
