@@ -19,6 +19,7 @@
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.4",
+    "properties-reader": "^2.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
@@ -28,12 +29,13 @@
     "redux-thunk": "^2.3.0",
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0",
-    "tedious": "^9.2.1"
+    "tedious": "^9.2.1",
+    "typescript": "^4.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "start_production":"serve -s build",
+    "start_production": "serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start:development_server": "cross-env NODE_ENV=development nodemon ./src/backEnd/app.js",
