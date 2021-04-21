@@ -3,9 +3,12 @@ var router = require('./Controller/api.js');
 var cors = require("cors");
 var cookieParser = require("cookie-parser")
 var path = require('path')
+var propertiesReader = require('properties-reader');
 
 
-let port = process.env.NODE_ENV === "development" ? "3000":"5000";
+let properties = process.env.NODE_ENV === "production" ? propertiesReader('./production.properties'):propertiesReader('./development.properties');
+let serverPort = properties.get("server.port")
+let corsPort = process.env.NODE_ENV === "development" ? "3000":"5000";
 
 var app = express();
 
@@ -17,7 +20,7 @@ app.get('/',function(req,res){
   })
 //-----------------------------------------------------------------------------------------
 
-app.use(cors({credentials:true, origin:`http://localhost:${port}`})); // option credentials為解決cookie跨域不可傳遞之問題
+app.use(cors({credentials:true, origin:`http://localhost:${corsPort}`})); // option credentials為解決cookie跨域不可傳遞之問題
 
 app.use(cookieParser());
 // app.use(express.static('public')
@@ -25,7 +28,7 @@ app.use(cookieParser());
 app.use('/rest', router);
 
 
-app.listen(3001, function () {
+app.listen(serverPort, function () {
     console.log(process.env.NODE_ENV);
     console.log('app is running at port 3001')
   })
