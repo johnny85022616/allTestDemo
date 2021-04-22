@@ -143,8 +143,8 @@ const LogoutButton = ()=>{
 }
 
 
-export const Navbar = ()=>{
-
+export const Navbar = ()=>{ 
+    let history = useHistory();
     const isLogin = useSelector(state => state.userReducer.isLogin);
     const hasJwtToken = getCookie("jwtToken")?true:false;
     const dispatch = useDispatch();

@@ -15,7 +15,6 @@ const Content = styled.div`
     justify-content:center;
 `;
 
-
 export function Login() {
   
   

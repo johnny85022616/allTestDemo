@@ -34,7 +34,6 @@ justify-content:center;
 
 
 
-
 function Input() {
     
     const [nameValue , setNameValue] = useState('');
