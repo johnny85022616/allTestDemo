@@ -76,7 +76,6 @@ function Input() {
         }
     }
 
-
     const handleButtonClick = ()=>{
         let name = nameValue;
         let identity = identityValue;
