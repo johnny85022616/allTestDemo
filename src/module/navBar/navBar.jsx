@@ -151,7 +151,7 @@ export const Navbar = ()=>{
     if(hasJwtToken === true){  //避免使用者refresh之後redux的isLogin變回init值，造成按下logout之後redux無法造成更新之狀況
         dispatch({type:'LOGIN_AND_LOGOUT',data:true});
     }
-    console.log("nav刷新 ！！！！！！！")
+    //console.log("nav刷新 ！！！！！！！")
     // console.log("Navbar!!!!!!!!!!!!!!!!!!!!!!!!!!")
     // console.log("isLogin = "+isLogin);
     // console.log("hasJwtToken = "+ hasJwtToken)

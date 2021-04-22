@@ -96,7 +96,6 @@ function Input() {
         dispatch(asyncUserLogin(data));
     }
 
-    
   return (
     <Form>
         <div>
