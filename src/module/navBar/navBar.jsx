@@ -112,12 +112,12 @@ const LogoutButton = ()=>{
     
     let history = useHistory();
     let match = false;
+
     const userLogoutActionCreator = async()=>{
         await apiUserLogout();
-        // console.log(getCookie("jwtToken"))
+        console.log(getCookie("jwtToken"))
         let isLogin = getCookie("jwtToken")===undefined?false:true;
-        //console.log(isLogin)
-        history.push("/")
+        console.log(isLogin)
         return {type:'LOGIN_AND_LOGOUT',data:isLogin};
     }
     
@@ -134,13 +134,14 @@ const LogoutButton = ()=>{
         dispatch({  
             type:'DELETE_All_MEMBER',   //將原本存在於redux中的member刪除
         });
-        //  history.push("/");
+    history.push("/");
     }
     
     return(
         <Button onClick={handleButtonClick} active={match}>登出</Button>
     )
 }
+
 
 export const Navbar = ()=>{ 
     let history = useHistory();
@@ -151,20 +152,23 @@ export const Navbar = ()=>{
     if(hasJwtToken === true){  //避免使用者refresh之後redux的isLogin變回init值，造成按下logout之後redux無法造成更新之狀況
         dispatch({type:'LOGIN_AND_LOGOUT',data:true});
     }
-    console.log("nav刷新 ！！！！！！！")
-    // console.log("Navbar!!!!!!!!!!!!!!!!!!!!!!!!!!")
-    // console.log("isLogin = "+isLogin);
-    // console.log("hasJwtToken = "+ hasJwtToken)
+
+    console.log("Navbar!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    console.log("isLogin = "+isLogin);
+    console.log("hasJwtToken = "+ hasJwtToken)
     const renderLoginOrNavbar = ()=>{
-        if(isLogin===true){
-          return(<><ButtonBlock>
-            <HomeButton/>
-            <IncreaseButton/>
-            <DeleteButton/>
-            <UpdateButton/>
-            <LogoutButton/>
-        </ButtonBlock>
-        </>)
+        if(isLogin===false){
+            return (<Login/>)
+        }else{
+            return (<><ButtonBlock>
+                        <HomeButton/>
+                        <IncreaseButton/>
+                        <DeleteButton/>
+                        <UpdateButton/>
+                        <LogoutButton/>
+                    </ButtonBlock>
+                    </>
+                    )
         }
     }
 
@@ -195,7 +199,7 @@ export const Navbar = ()=>{
         
                 <Switch>
                     <Route exact path="/">
-                        <Login/>
+                        <Home/>
                     </Route>
                     <Route exact path="/Home">
                         <Home/>
