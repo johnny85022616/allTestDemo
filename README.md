@@ -14,7 +14,7 @@ npm install
 npm run build 
 npm run start:production_server
 ```
-To connect to the database, please install mysql, create a database called "AllTestDemo", and set the account to "root" and the password to "!QAZ2wsx"
+If you want to modify the database information, you can go to development.properties or production.properties to modify it.
 
 
 
