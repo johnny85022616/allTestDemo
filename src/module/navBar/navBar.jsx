@@ -142,7 +142,6 @@ const LogoutButton = ()=>{
     )
 }
 
-
 export const Navbar = ()=>{ 
     let history = useHistory();
     const isLogin = useSelector(state => state.userReducer.isLogin);

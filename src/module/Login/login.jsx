@@ -19,7 +19,6 @@ const Content = styled.div`
     justify-content:center;
 `;
 
-
 export function Login() {
 
   let isLogin = getCookie("jwtToken")===undefined?false:true;
