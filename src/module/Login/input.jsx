@@ -3,7 +3,6 @@ import styled from '@emotion/styled'
 import {apiUserLogin} from "../../axiosManager/userRequest.js";
 import {getCookie} from "../../common/cookie.js" ;
 import { useDispatch } from 'react-redux';
-import {useHistory} from "react-router-dom";
 
 const Form = styled.div`
 min-height: 140px;
@@ -41,7 +40,6 @@ function Input() {
     const [identityValue , setIdentityValue] = useState('');
 
     const dispatch = useDispatch();
-    const history = useHistory();
 
     const handleChange = (e , inputType)=>{
         switch(inputType){
@@ -63,9 +61,6 @@ function Input() {
         await apiUserLogin(data);
         console.log(getCookie("jwtToken"))
         let isLogin = getCookie("jwtToken")===undefined?false:true;
-        if(isLogin){
-            history.push("/Home");
-        }
         return {type:'LOGIN_AND_LOGOUT',data:isLogin};
       
     }

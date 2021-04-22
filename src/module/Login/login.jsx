@@ -1,10 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled'
 import Input from './input.jsx'
-import {useSelector} from 'react-redux';
-import {useHistory} from "react-router-dom";
-import { useEffect } from 'react';
-import {getCookie} from '../../common/cookie.js'
 
 const LoginBlock = styled.div`
     margin: 0 auto;
@@ -30,6 +26,7 @@ export function Login() {
   useEffect(()=>{
     mayPushToHome();
   },[isLogin]);
+
 
   return (
     <LoginBlock>
