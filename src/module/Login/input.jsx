@@ -76,7 +76,6 @@ function Input() {
         }
     }
 
-
     const handleButtonClick = ()=>{
         let name = nameValue;
         let identity = identityValue;
@@ -96,7 +95,6 @@ function Input() {
         dispatch(asyncUserLogin(data));
     }
 
-    
   return (
     <Form>
         <div>

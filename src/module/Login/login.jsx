@@ -20,7 +20,6 @@ const Content = styled.div`
 `;
 
 export function Login() {
-
   let isLogin = getCookie("jwtToken")===undefined?false:true;
   const history = useHistory();
   const mayPushToHome = ()=>{   //如果為登入狀態，使用者在另個視窗開啟 /url 則會導到 home 頁 
