@@ -10,10 +10,18 @@ const insertUser = (memberList)=>{
     });
 }
 
-const findOne = async(loginData)=>{
+const findOneByIdentity = async(loginData)=>{
     return await Module.User.findOne({
         where:{
             identityNumber:loginData.identityNumber
+        }
+    })
+}
+
+const findOneByName = async(loginData)=>{
+    return await Module.User.findOne({
+        where:{
+            name:loginData.name
         }
     })
 }
@@ -60,5 +68,6 @@ module.exports={
     findAllUser:findAllUser,
     deletUser:deletUser,
     updateUser:updateUser,
-    findOne:findOne
+    findOneByIdentity:findOneByIdentity,
+    findOneByName:findOneByName
 }
