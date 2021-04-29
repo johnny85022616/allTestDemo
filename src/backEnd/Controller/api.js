@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router()
 var bodyParser = require('body-parser')
-const {insertUser, findAllUser , deletUser, updateUser,findOne} = require('../Dao/userDao.js')
+const {insertUser, findAllUser , deletUser, updateUser,findOneByIdentity,findOneByName} = require('../Dao/userDao.js')
 var jwt = require('jsonwebtoken')
 
 var jsonParser = bodyParser.json()
@@ -13,22 +13,31 @@ const secret = "userInfoKey"
 //     res.send("this is first");    
 // })
 
-router.post('/UserLogin' , jsonParser , async(req,res)=>{
+router.post('/UserLogin' , jsonParser , (req,res)=>{
     console.log(req.body);
     let loginData = req.body;
     console.log(req.cookies);
-        await findOne(loginData).then((userInfo)=>{
-            let payload = {
-                name : userInfo.name,
-                identityNumber : userInfo.identityNumber
+        
+        findOneByName(loginData).then((value)=>{
+            if(value){   //帳號存在
+                    if(value.identityNumber === loginData.identityNumber){  //查回來的密碼是否等於使用者輸入的密碼
+                        let payload = {
+                            name : value.name,
+                            identityNumber : value.identityNumber
+                        }
+                        const jwtToken = jwt.sign(payload,secret,{algorithm:"HS256"})
+                        res.cookie('jwtToken',jwtToken,{expires:new Date(Date.now()+5*60*1000)});
+                        console.log(jwtToken);
+                        res.json({ msg: 'success' , jwtToken:jwtToken , loginMessage:"登入成功"});
+                    }else{
+                        res.json({ msg: 'success' , loginMessage:"密碼錯誤"});
+                    }
+            }else{
+                res.json({ msg: 'success' , loginMessage:"查無此用戶"});
             }
-            const jwtToken = jwt.sign(payload,secret,{algorithm:"HS256"})
-            res.cookie('jwtToken',jwtToken,{expires:new Date(Date.now()+5*60*1000)});
-            console.log(jwtToken);
-            res.json({ msg: 'success' , jwtToken:jwtToken});
         }).catch((err)=>{
-            console.log("login fail!!!!!!!!!!")
-        });
+            console.error("findOneByName Error")
+        });;  
 });
 
 router.get('/UserLogout' , jsonParser , async(req,res)=>{

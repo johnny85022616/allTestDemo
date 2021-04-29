@@ -60,7 +60,8 @@ function Input() {
     }
 
     const userLoginActionCreator = async(data)=>{
-        await apiUserLogin(data);
+        let message = await apiUserLogin(data);
+        alert(message.data.loginMessage)
         console.log(getCookie("jwtToken"))
         let isLogin = getCookie("jwtToken")===undefined?false:true;
         if(isLogin){
