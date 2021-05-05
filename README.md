@@ -20,5 +20,5 @@ If you want to modify the database information, you can go to development.proper
 
 ## Demo
 please refer to the [**link**](http://138.91.21.212:3001/)  
-Login Name : aaa  
-login id : a11111111  
+Login Name:aaa  
+login id:A111111111  
