@@ -51,7 +51,7 @@ function Input() {
             break;
 
             case "identityValue":
-                let identityValue = e.target.value;
+                let identityValue = (e.target.value).toUpperCase();
                 setIdentityValue(identityValue);
             break;
 
