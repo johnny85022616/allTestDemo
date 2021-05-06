@@ -9,6 +9,8 @@ const NameList = styled.div`
     background-color:pink;
     height:100vh;
     padding-top:40px;
+    padding-left:4%;
+    padding-right:4%;
 `;
 const Content = styled.div`
     font-size:40px;
