@@ -1,12 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled'
-import {IncreaseForm} from '../nameList/IncreaseNameList.jsx'
-import {DeleteForm} from '../nameList/DeleteNameList.jsx'
-import {UpdateForm} from '../nameList/UpdateNameList.jsx'
-import {Home} from '../homePage/home.js'
-import {useDispatch ,useSelector} from 'react-redux';
-import {Login} from '../Login/login.jsx'
-import {getCookie} from '../../common/cookie.js'
+import {useDispatch } from 'react-redux';
 import {apiUserLogout} from '../../axiosManager/userRequest' 
 
 import {
@@ -63,7 +57,6 @@ const DeleteButton = ()=>{
         dispatch({  
             type:'DELETE_All_MEMBER',   //將原本存在於redux中的member刪除
         });
-        console.log("delete page click")
         history.push("/Delete");
     }
     
@@ -81,7 +74,6 @@ const HomeButton = ()=>{
         dispatch({  
             type:'DELETE_All_MEMBER',   //將原本存在於redux中的member刪除
         });
-        console.log("Home page click")
         history.push("/Home");
     }
     
@@ -112,29 +104,12 @@ const LogoutButton = ()=>{
     
     let history = useHistory();
     let match = false;
-    const userLogoutActionCreator = async()=>{
-        await apiUserLogout();
-        // console.log(getCookie("jwtToken"))
-        let isLogin = getCookie("jwtToken")===undefined?false:true;
-        //console.log(isLogin)
-        history.push("/")
-        return {type:'LOGIN_AND_LOGOUT',data:isLogin};
-    }
     
-    const asyncUserLogout= ()=>{
-        return async(dispatch,getState)=>{
-            dispatch(await userLogoutActionCreator());
-            }
-    }
 
-    const handleButtonClick = ()=>{
+    const handleButtonClick = async()=>{
       
-        dispatch(asyncUserLogout());
-
-        dispatch({  
-            type:'DELETE_All_MEMBER',   //將原本存在於redux中的member刪除
-        });
-        //  history.push("/");
+        await apiUserLogout();
+        history.push("/");
     }
     
     return(
@@ -143,74 +118,16 @@ const LogoutButton = ()=>{
 }
 
 export const Navbar = ()=>{ 
-    let history = useHistory();
-    const isLogin = useSelector(state => state.userReducer.isLogin);
-    const hasJwtToken = getCookie("jwtToken")?true:false;
-    const dispatch = useDispatch();
-    
-    if(hasJwtToken === true){  //避免使用者refresh之後redux的isLogin變回init值，造成按下logout之後redux無法造成更新之狀況
-        dispatch({type:'LOGIN_AND_LOGOUT',data:true});
-    }
-    //console.log("nav刷新 ！！！！！！！")
-    // console.log("Navbar!!!!!!!!!!!!!!!!!!!!!!!!!!")
-    // console.log("isLogin = "+isLogin);
-    // console.log("hasJwtToken = "+ hasJwtToken)
-    const renderLoginOrNavbar = ()=>{
-        if(isLogin===true){
-          return(<><ButtonBlock>
-            <HomeButton/>
-            <IncreaseButton/>
-            <DeleteButton/>
-            <UpdateButton/>
-            <LogoutButton/>
-        </ButtonBlock>
-        </>)
-        }
-    }
 
     return (
         <NavBarBlock>
-            <Router>
-                {/* <ul>
-                    <li>
-                    <Link to="/Increase">新增</Link>
-                    </li>
-                    <li>
-                    <Link to="/Delete">刪除</Link>
-                    </li>
-                    <li>
-                    <Link to="/Update"></Link>
-                    </li>
-                </ul>
-                {isLogin?
-                    <ButtonBlock>
-                    <IncreaseButton/>
-                    <DeleteButton/>
-                    <UpdateButton/>
-                    </ButtonBlock>:<Login/>
-                } 
-                */}
-
-                {renderLoginOrNavbar()}
-        
-                <Switch>
-                    <Route exact path="/">
-                        <Login/>
-                    </Route>
-                    <Route exact path="/Home">
-                        <Home/>
-                    </Route>
-                    <Route exact path="/Increase">
-                        <IncreaseForm/>
-                    </Route>
-                    <Route path="/Delete">
-                        <DeleteForm/>
-                    </Route>
-                    <Route path="/Update">
-                        <UpdateForm/>
-                    </Route>
-                </Switch>
-            </Router>
+            <ButtonBlock>
+                <HomeButton/>
+                <IncreaseButton/>
+                <DeleteButton/>
+                <UpdateButton/>
+                <LogoutButton/>
+            </ButtonBlock>
         </NavBarBlock>
     )
 }
