@@ -41,7 +41,7 @@ function Input() {
     const [identityValue , setIdentityValue] = useState('');
 
     const dispatch = useDispatch();
-    const history = useHistory();
+    let history = useHistory();
 
     const handleChange = (e , inputType)=>{
         switch(inputType){
@@ -59,25 +59,7 @@ function Input() {
         }
     }
 
-    const userLoginActionCreator = async(data)=>{
-        let message = await apiUserLogin(data);
-        alert(message.data.loginMessage)
-        console.log(getCookie("jwtToken"))
-        let isLogin = getCookie("jwtToken")===undefined?false:true;
-        if(isLogin){
-            history.push("/Home");
-        }
-        return {type:'LOGIN_AND_LOGOUT',data:isLogin};
-      
-    }
-    
-    const asyncUserLogin= (data)=>{
-    return async(dispatch,getState)=>{
-        dispatch(await userLoginActionCreator(data));
-        }
-    }
-
-    const handleButtonClick = ()=>{
+    const handleButtonClick = async()=>{
         let name = nameValue;
         let identity = identityValue;
 
@@ -85,15 +67,13 @@ function Input() {
             name : name ,
             identityNumber : identity
         }
-        // apiUserLogin(data).then((userInfo)=>{
-            
-        //     console.log(document.cookie)
         
-
-        // setNameValue('');
-        // setIdentityValue('');
-        // });
-        dispatch(asyncUserLogin(data));
+        let message = await apiUserLogin(data);
+        alert(message.data.loginMessage)
+        let isLogin = getCookie("jwtToken")===undefined?false:true;
+        if(isLogin){
+            history.push("/Home");
+        }
     }
 
   return (
