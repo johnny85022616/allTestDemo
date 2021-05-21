@@ -1,10 +1,15 @@
 import React from 'react';
 import styled from '@emotion/styled'
+import {Navbar} from '../navBar/navBar.jsx'
 
 
 const HomeBlock = styled.div`
-    background-color:pink;
-    height:100vh;
+margin: 0 auto;
+background-color:pink;
+padding-top:40px;
+padding-left:4%;
+padding-right:4%;
+min-height:100vh;
 `;
 
 
@@ -28,9 +33,12 @@ const HomeContent = styled.div`
   export const Home = ()=>{
 
   return (
+  <>
+    <Navbar/>
     <HomeBlock>
        <HomeTitle>新刪修首頁</HomeTitle>
        <HomeContent>歡迎來到張裕的新刪修網站，此頁面為功能非常基本之新刪修網頁，供面試使用。</HomeContent>
     </HomeBlock>
+  </>
   );
 }
