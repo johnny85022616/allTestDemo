@@ -4,14 +4,15 @@ import {apiFindAllUser} from '../../axiosManager/userRequest.js'
 import { useDispatch } from 'react-redux';
 import {UpdateMemberList} from './UpdateResult.jsx'
 import {UpdateInput} from './UpdateInput.jsx'
+import {Navbar} from '../navBar/navBar.jsx'
 
 const NameList = styled.div`
     margin: 0 auto;
     background-color:pink;
-    height:100vh;
     padding-top:40px;
     padding-left:4%;
     padding-right:4%;
+    min-height:100vh;
 `;
 const Content = styled.div`
     font-size:40px;
@@ -51,11 +52,14 @@ export function UpdateForm() {
   },[dispatch]);
 
   return (
-    <NameList>
-        <Content>修改使用者</Content>
-        <UpdateInput/>
-        <UpdateMemberList/>
-    </NameList>
+    <> 
+      <Navbar/>  
+      <NameList>
+          <Content>修改使用者</Content>
+          <UpdateInput/>
+          <UpdateMemberList/>
+      </NameList>
+    </>
   );
 }
 

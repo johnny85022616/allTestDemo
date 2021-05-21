@@ -30,25 +30,21 @@ ReactDOM.render(
                       </Route>
                       <Route exact path="/Home">
                                 <>
-                                    <Navbar/>
                                     <Home/>
                                 </>
                       </Route>
                       <Route exact path="/Increase">
                                 <>
-                                    <Navbar/>
                                     <IncreaseForm/>
                                 </>
                       </Route>
                       <Route path="/Delete">
                                 <>
-                                    <Navbar/>
                                     <DeleteForm/>
                                 </>
                       </Route>
                       <Route path="/Update">
                                 <>
-                                    <Navbar/>
                                     <UpdateForm/>
                                 </>
                       </Route>
