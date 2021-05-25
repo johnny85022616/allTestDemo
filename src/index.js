@@ -2,13 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-import {store} from './store/store.js'
-import {Navbar} from '../src/module/navBar/navBar.jsx';
-import {IncreaseForm} from '../src/module/nameList/IncreaseNameList.jsx'
-import {DeleteForm} from '../src/module/nameList/DeleteNameList.jsx'
-import {UpdateForm} from '../src/module/nameList/UpdateNameList.jsx'
-import {Home} from '../src/module/homePage/home.js'
-import {Login} from '../src/module/Login/login.jsx'
+import {store} from './store/store.js';
+import {renderRoutes}from "react-router-config";
+import {routes} from './Routes/routes.js'
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,29 +21,7 @@ ReactDOM.render(
   <Provider store={store}>
             <Router>
                   <Switch>
-                      <Route exact path="/">
-                                    <Login/>
-                      </Route>
-                      <Route exact path="/Home">
-                                <>
-                                    <Home/>
-                                </>
-                      </Route>
-                      <Route exact path="/Increase">
-                                <>
-                                    <IncreaseForm/>
-                                </>
-                      </Route>
-                      <Route path="/Delete">
-                                <>
-                                    <DeleteForm/>
-                                </>
-                      </Route>
-                      <Route path="/Update">
-                                <>
-                                    <UpdateForm/>
-                                </>
-                      </Route>
+                      {renderRoutes(routes)}
                   </Switch>
             </Router>
   </Provider>,
