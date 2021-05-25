@@ -2,9 +2,10 @@ import React, {useEffect} from 'react';
 import styled from '@emotion/styled'
 import {MemberList} from './result.jsx'
 import {DeleteSendButton} from './DeleteSendButton.jsx'
-import {apiFindAllUser} from '../../axiosManager/userRequest.js'
 import { useDispatch } from 'react-redux';
 import {Navbar} from '../navBar/navBar.jsx'
+import findAllUserActionCreator from '../../action/getAllUserAction.js'
+
 
 const NameList = styled.div`
     margin: 0 auto;
@@ -21,17 +22,7 @@ const Content = styled.div`
     justify-content:center;
 `;
 
-const findAllUserActionCreator = async()=>{
-  const returnData = await apiFindAllUser();
-  let users ;
-  try{
-     users = returnData.data.user;
 
-      }catch(e){
-        console.error("DeleteNameList findAllUserActionCreator Error");
-      }
-    return {type:'FIND_ALL_MEMBER',data:users};
-}
 
 const asyncFindAllUser = ()=>{
     return async(dispatch,getState)=>{
