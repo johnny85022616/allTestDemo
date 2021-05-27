@@ -1,4 +1,4 @@
-var Module = require('../establishment.js');
+import Module from '../establishment.js';
 
 const insertUser = (memberList)=>{
     Module.User.bulkCreate(
@@ -63,11 +63,11 @@ const updateUser = (updateUser)=>{
     });
 }
 
-module.exports={
-    insertUser:insertUser,
-    findAllUser:findAllUser,
-    deletUser:deletUser,
-    updateUser:updateUser,
-    findOneByIdentity:findOneByIdentity,
-    findOneByName:findOneByName
+export {
+    insertUser,
+    findAllUser,
+    deletUser,
+    updateUser,
+    findOneByIdentity,
+    findOneByName
 }

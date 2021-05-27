@@ -36,11 +36,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build_server": "webpack --mode development --config webpack.server.js --watch",
     "start_production": "serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start:development_server": "cross-env NODE_ENV=development nodemon ./src/backEnd/app.js",
-    "start:production_server": "cross-env NODE_ENV=production nodemon ./src/backEnd/app.js",
+    "start:production_server": "cross-env NODE_ENV=production nodemon ./dist/bundle.js",
     "start:database": "node ./src/backEnd/establishment.js"
   },
   "eslintConfig": {
@@ -59,6 +60,12 @@
     ]
   },
   "devDependencies": {
-    "redux-devtools": "^3.5.0"
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.1.0",
+    "redux-devtools": "^3.5.0",
+    "webpack-cli": "^4.7.0",
+    "webpack-node-externals": "^3.0.0"
   }
 }
