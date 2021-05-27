@@ -1,8 +1,8 @@
-var express = require("express");
+import express from 'express';
 var router = express.Router()
-var bodyParser = require('body-parser')
-const {insertUser, findAllUser , deletUser, updateUser,findOneByIdentity,findOneByName} = require('../Dao/userDao.js')
-var jwt = require('jsonwebtoken')
+import bodyParser from 'body-parser';
+import {insertUser, findAllUser , deletUser, updateUser,findOneByIdentity,findOneByName} from'../Dao/userDao.js';
+import jwt from 'jsonwebtoken'
 
 var jsonParser = bodyParser.json()
 
@@ -85,5 +85,5 @@ router.post('/UpdateUser' , jsonParser , (req,res)=>{
     res.json({msg:'success'});
 })
 
-module.exports = router;
+export default router;
 
